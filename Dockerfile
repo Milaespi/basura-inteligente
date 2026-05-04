@@ -19,7 +19,8 @@ RUN pip install --no-cache-dir \
 # Instalar el resto de dependencias
 RUN pip install --no-cache-dir -r requirements.txt
 
-ARG CACHEBUST=2
+ARG CACHEBUST=3
+RUN echo "Cache bust: $CACHEBUST"
 COPY . .
 
 RUN mkdir -p uploads && chmod 777 uploads
