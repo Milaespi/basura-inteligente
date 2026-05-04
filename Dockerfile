@@ -1,5 +1,8 @@
 FROM python:3.11-slim
 
+ARG FORCEREBUILD=1
+RUN echo "Rebuild completo desde cero: $FORCEREBUILD"
+
 RUN apt-get update && apt-get install -y --no-install-recommends \
     libglib2.0-0 \
     libgomp1 \
