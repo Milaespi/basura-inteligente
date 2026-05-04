@@ -2,6 +2,7 @@
 Utilidades de seguridad: hash de contraseñas con bcrypt y tokens JWT.
 """
 
+import hashlib
 from datetime import datetime, timedelta, timezone
 from typing import Optional
 
@@ -19,12 +20,17 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 # ── Contraseñas ───────────────────────────────────────────────────────────────
 
+def _prepare(plain: str) -> str:
+    # bcrypt tiene límite de 72 bytes; se pre-hashea con SHA-256 para evitarlo
+    return hashlib.sha256(plain.encode()).hexdigest()
+
+
 def hash_password(plain: str) -> str:
-    return pwd_context.hash(plain)
+    return pwd_context.hash(_prepare(plain))
 
 
 def verify_password(plain: str, hashed: str) -> bool:
-    return pwd_context.verify(plain, hashed)
+    return pwd_context.verify(_prepare(plain), hashed)
 
 
 # ── JWT ───────────────────────────────────────────────────────────────────────
