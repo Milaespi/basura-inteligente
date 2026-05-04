@@ -1,0 +1,38 @@
+# Variables de entorno — NUNCA subir al repositorio
+.env
+
+# Entorno virtual Python
+venv/
+.venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# Imágenes subidas por usuarios
+uploads/
+
+# Modelo temporal generado en runtime
+app/ml_model_temp.pt
+
+# Tests
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

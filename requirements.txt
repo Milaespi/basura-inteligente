@@ -1,0 +1,24 @@
+fastapi==0.115.5
+uvicorn[standard]==0.32.1
+python-multipart==0.0.12
+python-dotenv==1.0.1
+
+# Base de datos
+pymongo==4.10.1
+
+# Autenticación
+passlib[bcrypt]==1.7.4
+python-jose[cryptography]==3.3.0
+pydantic[email]==2.10.3
+pydantic-settings==2.6.1
+
+# ML / YOLO
+ultralytics==8.3.40
+torch==2.5.1
+torchvision==0.20.1
+Pillow==11.0.0
+numpy==1.26.4
+opencv-python-headless==4.10.0.84
+
+# Utilidades
+aiofiles==24.1.0
